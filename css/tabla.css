@@ -1,51 +1,85 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
   }
-
-  h1 {
+  
+  header {
     text-align: center;
     margin-bottom: 20px;
   }
-
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
   #notasContainer {
     margin-bottom: 20px;
+    overflow-x: auto;
   }
-
+  
   table {
     width: 100%;
     border-collapse: collapse;
   }
-
+  
   th, td {
-    padding: 8px;
+    padding: 10px;
     border-bottom: 1px solid #ddd;
+    text-align: center;
   }
-
+  
   th {
     background-color: #f2f2f2;
     font-weight: bold;
-    text-align: left;
   }
-
-  #nombreUsuario {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
+  
   #cerrarSesion {
     display: block;
     margin: 0 auto;
-    padding: 8px 16px;
+    padding: 10px 20px;
     background-color: #d31024;
     color: #fff;
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
-
+  
   #cerrarSesion:hover {
     background-color: #b20c1a;
   }
+  
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 28px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    th, td {
+      padding: 8px;
+    }
+  
+    #cerrarSesion {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+    img{
+        width: 100%;
+    }
+  }
+  

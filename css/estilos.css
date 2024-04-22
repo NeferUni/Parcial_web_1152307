@@ -67,3 +67,9 @@ button:hover {
         border-radius: 20px;
     }
 }
+
+img{
+    margin: 0 auto;
+    display: block;
+    height: 300px;
+}
