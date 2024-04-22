@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #notasContainer {
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  #nombreUsuario {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #cerrarSesion {
+    display: block;
+    margin: 0 auto;
+    padding: 8px 16px;
+    background-color: #d31024;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  #cerrarSesion:hover {
+    background-color: #b20c1a;
+  }
