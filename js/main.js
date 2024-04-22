@@ -15,24 +15,42 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  const data = { code, password: "1234" };
+  const loginData = { code, password: "1234" };
 
+  // Hacer la solicitud de inicio de sesión
   fetch("https://24a0dac0-2579-4138-985c-bec2df4bdfcc-00-3unzo70c406dl.riker.replit.dev/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(loginData),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Credenciales inválidas");
+      }
+      return response.json();
+    })
     .then((user) => {
+      // Guardar el usuario en localStorage
       localStorage.setItem("user", JSON.stringify(user));
-      window.location.href = "notas.html";
+
+      // Obtener las notas del estudiante
+      fetch(`https://24a0dac0-2579-4138-985c-bec2df4bdfcc-00-3unzo70c406dl.riker.replit.dev/students/${code}/notas`)
+        .then((response) => response.json())
+        .then((notas) => {
+          // Guardar las notas en localStorage
+          localStorage.setItem("notas", JSON.stringify(notas));
+          // Redirigir a la página de notas
+          window.location.href = "notas.html";
+        })
+        .catch((error) => {
+          console.error("Error al obtener las notas:", error);
+          messageDiv.textContent = "Error al obtener las notas";
+        });
     })
     .catch((error) => {
       console.error("Error:", error);
-      messageDiv.textContent = "Credenciales inválidas";
-      codeInput.value = "";
-      passwordInput.value = "";
+      messageDiv.textContent = error.message || "Error de inicio de sesión";
     });
 });
